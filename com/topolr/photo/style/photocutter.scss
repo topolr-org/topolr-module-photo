@@ -1,0 +1,79 @@
+.photocutter{
+    background:url(images/bg.png) repeat;
+    position:relative;
+    width:100%;
+    height:100%;
+    box-shadow: 0 0 10px #AAA5A5;
+    user-select: none;
+    cursor:default;
+    canvas{
+        position: absolute;
+        left:0;
+        top:0;
+    }
+    .tools{
+        line-height:30px;
+        background:white;
+        position: absolute;
+        left:0;
+        bottom:0;
+        right:0;
+    }
+    .tbtn{
+        line-height: 30px;
+        width:30px;
+        text-align: center;
+        display: inline-block;
+        background:white;
+        &:hover{
+            background:#F0F0F0;
+        }
+    }
+    .fbtn{
+        line-height: 30px;
+        text-align: center;
+        width:30px;
+        position:relative;
+        display:inline-block;
+        input{
+            display: inline-block;
+            width:30px;
+            height:30px;
+            position: absolute;
+            left:0;
+            top:0;
+            opacity:0;
+        }
+        &:hover{
+            background:#F0F0F0;
+        }
+    }
+    .mask{
+        position: absolute;
+        left:0;
+        top:0;
+        right:0;
+        bottom:0;
+        background:rgba(255,255,255,.6);
+        .openfile{
+            width:100px;
+            height:60px;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left:-50px;
+            margin-top:-30px;
+            line-height: 30px;
+            text-align: center;
+            input{
+                display:inline-block;
+                width:100px;
+                height:60px;
+                position: absolute;
+                left:0;
+                top:0;
+                opacity: 0;
+            }
+        }
+    }
+}

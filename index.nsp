@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="<%=request.getHttpPath();%>node_modules/topolr/topolr.js" type="text/javascript"></script>
+    <script>
+        App({
+    "sitePath": "<%=request.getHttpPath();%>",
+    "basePath": "com/dist/",
+    "title": "photo",
+    "description": "photo modules of topolr",
+    "boot": "photo.test.boot",
+}).boot(true);
+    </script>
+</head>
+<body>
+    <div style="width:500px;height:300px;margin:0 auto;position:relative;" data-find="container"></div>
+</body>
+</html>
