@@ -12,26 +12,26 @@
         left:0;
         top:0;
     }
-    .tools{
+    .gallery-tools{
         line-height:30px;
-        background:white;
+        //background:white;
         position: absolute;
         left:0;
         bottom:0;
         right:0;
-    }
-    .tbtn{
-        line-height: 30px;
-        width:30px;
         text-align: center;
-        display: inline-block;
-        background:white;
-        vertical-align:top;
-        &:hover{
-            background:#F0F0F0;
+        .gallery-tools-btn{
+            line-height: 30px;
+            width:30px;
+            display: inline-block;
+            background:white;
+            vertical-align:top;
+            &:hover{
+                background:#F0F0F0;
+            }
         }
     }
-    .thumbs{
+    .gallery-thumbs{
         width:160px;
         position:absolute;
         top:5px;
@@ -40,7 +40,7 @@
         background:#F3F2F3;
         box-shadow: 0 0 10px #483E3E;
         transition:all .3s ease-out;
-        .bar{
+        .gallery-thumbs-bar{
             width:15px;
             position: absolute;
             top:0;
@@ -55,7 +55,7 @@
                 transition:all .3s ease-out;
             }
         }
-        .listcon{
+        .gallery-thumbs-listcon{
             position: absolute;
             left:15px;
             top:5px;
@@ -97,7 +97,7 @@
             }
         }
     }
-    .desccon{
+    .gallery-desc{
         padding:10px;
         background:rgba(5,5,5,.3);
         position: absolute;
@@ -125,15 +125,14 @@
             top:0;
             right:0;
             bottom:0;
-            @include radiusSame(5px);
             border-radius:5px;
             box-shadow:0 0 10px #403E3E inset;
         }
     }
     &.close{
-        .thumbs{
+        .gallery-thumbs{
             transform:translateX(150px);
-            .bar i{
+            .gallery-thumbs-bar i{
                 transform:rotate(180deg);
             }
         }

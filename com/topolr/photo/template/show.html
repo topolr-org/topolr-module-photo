@@ -1,0 +1,13 @@
+<!--[gallery]-->
+<div class="gallery-desc"></div>
+<div class="gallery-thumbs">
+    <div class="gallery-thumbs-bar" data-bind="click:bar"></div>
+    <div class="gallery-thumbs-listcon">
+        <div class="gallery-thumbs-list"></div>
+    </div>
+</div>
+<div class="gallery-tools">
+    <%for(var i=0;i<data.tools.length;i++){%>
+    <div class="gallery-tools-btn" data-bind="click:btn" @cache(data.tools[i])><i class="mt-photo-icon <%=data.tools[i].icon;%>"></i></div>
+    <%}%>
+</div>

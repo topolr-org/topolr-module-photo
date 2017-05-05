@@ -1,27 +1,31 @@
 /**
  * @packet photo.show;
  * @require photo.util.canvas;
- * @css photo.style.gallery;
  * @require util.file;
+ * @css photo.style.gallery;
+ * @css photo.style.style;
+ * @template photo.template.show;
  */
 Module({
     name: "gallery",
     className: "gallery",
     extend: "view",
+    template:"@show.gallery",
     option: {
         url: "gallery.json",
         rotateoffset: 10,
         zoomoffset: 0.2,
         showList: false,
+        images:[],
         tools: [
-            {type: "zoomin", icon: "fa-search-plus"},
-            {type: "zoomout", icon: "fa-search-minus"},
-            {type: "rotateleft", icon: "fa-undo"},
-            {type: "rotateright", icon: "fa-repeat"},
-            {type: "download", icon: "fa-download"},
-            {type: "reset", icon: "fa-refresh"},
-            {type: "previmage", icon: "fa-chevron-left"},
-            {type: "nextimage", icon: "fa-chevron-right"}
+            {type: "zoomin", icon: "mt-photo-zoom_in"},
+            {type: "zoomout", icon: "mt-photo-zoom_out"},
+            {type: "rotateleft", icon: "mt-photo-rotate_left"},
+            {type: "rotateright", icon: "mt-photo-rotate_right"},
+            {type: "download", icon: "mt-photo-vertical_align_bottom"},
+            {type: "reset", icon: "mt-photo-refresh"},
+            {type: "previmage", icon: "mt-photo-navigate_before"},
+            {type: "nextimage", icon: "mt-photo-navigate_next"}
         ]
     },
     init: function (option) {
@@ -114,36 +118,20 @@ Module({
         this.imageContainer = imageContainer;
         this.baseContainer = baseContainer;
         this.r = r;
-
-        $("<div class='desccon'></div>").appendTo(this.dom);
-        $("<div class='thumbs'>" +
-            "<div class='bar'><i class='fa fa-chevron-right'></i></div>" +
-            "<div class='listcon'>" +
-            "<div class='list'></div>" +
-            "</div>" +
-            "</div>").appendTo(this.dom).find(".bar").click(function () {
-            ths.dom.toggleClass("close");
-        });
-        var str = "<div class='tools'>";
-        for (var i in option.tools) {
-            str += "<div class='tbtn' type='" + option.tools[i].type + "'><i class='fa " + option.tools[i].icon + "'></i></div>";
-        }
-        str += "</div>";
-        var b = $(str).appendTo(this.dom), ths = this;
-        b.find(".tbtn").each(function () {
-            $(this).click(function () {
-                var type = $(this).attr("type");
-                ths.dispatchEvent(type, {
-                    btn: $(this)
-                });
-            });
-        });
         if (!option.showList) {
             this.dom.addClass("close");
         }
         this.current = 0;
         this.loading.ths = this;
-        this.getData();
+        this.render(this.option);
+        // this.getData();
+    },
+    bind_btn:function(dom){
+        var data=dom.cache(),type=data.type;
+        this.dispatchEvent(type,{btn:dom});
+    },
+    bind_bar:function () {
+        this.dom.toggleClass("close");
     },
     loading: {
         ths: null,

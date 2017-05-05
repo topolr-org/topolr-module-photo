@@ -10,6 +10,59 @@
     "title": "photo",
     "description": "photo modules of topolr",
     "boot": "photo.test.boot",
+    "map": {
+        "d": true,
+        "m": {
+            "p": {
+                "util.file": "4631ae8650",
+                "util.images": "03911758e8",
+                "util.router": "3c3afc23f8",
+                "util.uikit": "1bd99ab1fb",
+                "photo.show": "e4854dbb9a",
+                "photo.test": "3bf39de0a1",
+                "photo.tool": "6f9dcdd3b3",
+                "photo.util.canvas": "1b36a803ce",
+                "photo.service.showservice": "d890e1e918"
+            },
+            "c": {
+                "util.style.images": "80c5adaef4",
+                "util.style.uikit": "f2024b2adc",
+                "photo.style.gallery": "a738e6ad56",
+                "photo.style.photocutter": "9545ad58ee",
+                "photo.style.style": "79d68b4ca2"
+            },
+            "t": {
+                "util.template.imagestemp": "7a615cee41",
+                "photo.template.show": "ae55267b2c"
+            }
+        },
+        "c": {
+            "photo-test-c1": {
+                "p": [
+                    "photo.test",
+                    "photo.show",
+                    "photo.util.canvas",
+                    "util.file"
+                ],
+                "c": [
+                    "photo.style.gallery",
+                    "photo.style.style"
+                ],
+                "t": [
+                    "photo.template.show"
+                ]
+            },
+            "photo-tool-c1": {
+                "p": [
+                    "photo.tool"
+                ],
+                "c": [
+                    "photo.style.photocutter"
+                ]
+            }
+        },
+        "id": "90f79989c87d94e1215adbabf142f44c"
+    }
 }).boot(true);
     </script>
 </head>
