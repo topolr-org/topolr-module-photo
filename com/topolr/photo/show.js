@@ -5,30 +5,66 @@
  * @css photo.style.gallery;
  * @css photo.style.style;
  * @template photo.template.show;
+ * @require photo.service.showservice;
+ * @require util.uikit;
  */
 Module({
     name: "gallery",
     className: "gallery",
-    extend: "view",
-    template:"@show.gallery",
+    extend: "viewgroup",
+    layout:"@show.gallery",
+    services:{"gallery":"@showservice.galleryservice"},
     option: {
         url: "gallery.json",
-        rotateoffset: 10,
-        zoomoffset: 0.2,
-        showList: false,
         images:[],
-        tools: [
-            {type: "zoomin", icon: "mt-photo-zoom_in"},
-            {type: "zoomout", icon: "mt-photo-zoom_out"},
-            {type: "rotateleft", icon: "mt-photo-rotate_left"},
-            {type: "rotateright", icon: "mt-photo-rotate_right"},
-            {type: "download", icon: "mt-photo-vertical_align_bottom"},
-            {type: "reset", icon: "mt-photo-refresh"},
-            {type: "previmage", icon: "mt-photo-navigate_before"},
-            {type: "nextimage", icon: "mt-photo-navigate_next"}
-        ]
+        viewerType:"@.imageviewer",
+        listType:"@.thumblist"
     },
     init: function (option) {
+        this.getService("gallery").action("set",this.option.images);
+    },
+    bind_bar:function () {
+        this.dom.toggleClass("close");
+    },
+    update:function (data) {
+        this.getChildByType(this.option.listType).setImages(data.thumbImages);
+        this.getChildByType(this.option.viewerType).setImage();
+    },
+    closeList: function () {
+        this.dom.addClass("close");
+    },
+    openList: function () {
+        this.dom.removeClass("close");
+    },
+    getData: function () {
+    },
+    gotoImage: function (num) {
+    },
+    nextImage: function () {
+    },
+    prevImage: function () {
+    }
+});
+Module({
+    name:"imageviewer",
+    extend:"view",
+    className:"imageviewer",
+    template:"@show.imageviewer",
+    option:{
+        rotateoffset: 10,
+        zoomoffset: 0.2,
+        tools: [
+            {type: "zoomIn", icon: "mt-photo-zoom_in"},
+            {type: "zoomOut", icon: "mt-photo-zoom_out"},
+            {type: "rotateLeft", icon: "mt-photo-rotate_left"},
+            {type: "rotateRight", icon: "mt-photo-rotate_right"},
+            {type: "download", icon: "mt-photo-vertical_align_bottom"},
+            {type: "reset", icon: "mt-photo-refresh"}
+        ]
+    },
+    init:function () {
+        var option=this.option;
+        this.render(option);
         option.sceneWidth = this.dom.width();
         option.sceneHeight = this.dom.height();
         var canvas = require("@canvas");
@@ -118,58 +154,19 @@ Module({
         this.imageContainer = imageContainer;
         this.baseContainer = baseContainer;
         this.r = r;
-        if (!option.showList) {
-            this.dom.addClass("close");
-        }
-        this.current = 0;
-        this.loading.ths = this;
-        this.render(this.option);
-        // this.getData();
     },
     bind_btn:function(dom){
         var data=dom.cache(),type=data.type;
-        this.dispatchEvent(type,{btn:dom});
-    },
-    bind_bar:function () {
-        this.dom.toggleClass("close");
-    },
-    loading: {
-        ths: null,
-        create: function () {
-            if (this.ths.dom.find(".mask").length === 0) {
-                $("<div class='mask'><div class='con'><i class='fa fa-refresh fa-spin'></i></div></div>").appendTo(this.ths.dom);
-            }
-        },
-        remove: function () {
-            this.ths.dom.find(".mask").remove();
-        },
-        icon: function (name) {
-            this.ths.dom.find(".mask i").attr(name);
-        },
-        mask: function () {
-            return this.ths.dom.find(".mask");
+        if(this[type]){
+            this[type](data);
         }
-    },
-    closeList: function () {
-        this.dom.addClass("close");
-    },
-    openList: function () {
-        this.dom.removeClass("close");
-    },
-    getData: function () {
-        var ths = this;
-        this.postData({
-            url: this.option.url,
-            back: function (data) {
-                ths.setImageList(data);
-            }
-        });
+        this.dispatchEvent(type,data);
     },
     setImage: function (url) {
         var ths = this;
-        this.loading.create();
+        $.loadingbar().showLoading("loading...");
         $.loader().image(url, function () {
-            ths.loading.remove();
+            $.loadingbar().close();
             var ximage = this, _w = ximage.width, _h = ximage.height, image = ths.image;
             image.canvas.width = _w;
             image.canvas.height = _h;
@@ -182,11 +179,6 @@ Module({
             });
             image.setImage(this, "fit");
             ths.imageContainer.rotate(0);
-        }, function () {
-            ths.loading.icon("fa fa-refresh");
-            ths.loading.mask().click(function () {
-                ths.setImage(url);
-            });
         });
     },
     _resize: function () {
@@ -199,28 +191,6 @@ Module({
         } else {
             this.dom.find(".listcon").unbind("mousemove");
         }
-    },
-    setImageList: function (data) {
-        this.data = data;
-        var str = "", ths = this;
-        for (var i in data) {
-            str += "<div class='img' num='" + i + "'><div class='mg' style='background-image:url(" + data[i].thumb + ")'></div></div>";
-        }
-        this.dom.find(".list").html(str).find(".img").each(function (i) {
-            $(this).click(function () {
-                $(this).parent().children().each(function () {
-                    $(this).removeClass("hover");
-                });
-                var num = $(this).attr("num");
-                $(this).addClass("hover");
-                ths.setImage(ths.data[num].big);
-                ths.dom.find(".desccon").html((ths.data[num].desc || ""));
-            });
-            if (i === 0) {
-                $(this).click();
-            }
-        });
-        this.privator("resize");
     },
     zoomIn: function () {
         var image = this.image, offset = this.option.zoomoffset;
@@ -315,44 +285,24 @@ Module({
             rotate: 0
         });
         this.imageContainer.rotate(0);
+    }
+});
+Module({
+    name:"thumblist",
+    extend:"view",
+    template:"@show.thumblist",
+    className:"thumblist",
+    option:{
+        list:[]
     },
-    gotoImage: function (num) {
-        var a = this.dom.find(".img").eq(parseInt(num));
-        if (a.length > 0) {
-            this.current = num;
-            a.click();
-        }
+    init:function () {
+        this.render(this.option.list);
     },
-    nextImage: function () {
-        var a = this.current + 1;
-        this.gotoImage(a);
+    setImages:function (array) {
+        this.render(this.option.list.concat(array));
     },
-    prevImage: function () {
-        var a = this.current - 1;
-        this.gotoImage(a);
-    },
-    event_zoomin: function () {
-        this.zoomIn();
-    },
-    event_zoomout: function () {
-        this.zoomOut();
-    },
-    event_rotateleft: function () {
-        this.rotateLeft();
-    },
-    event_rotateright: function () {
-        this.rotateRight();
-    },
-    event_reset: function () {
-        this.reset();
-    },
-    event_download: function () {
-        this.download();
-    },
-    event_nextimage: function () {
-        this.nextImage();
-    },
-    event_previmage: function () {
-        this.prevImage();
+    bind_img:function (dom) {
+        var data=dom.cache();
+        this.dispatchEvent("thumbclick",data);
     }
 });

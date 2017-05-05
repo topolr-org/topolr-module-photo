@@ -18,22 +18,22 @@
                 "util.images": "03911758e8",
                 "util.router": "3c3afc23f8",
                 "util.uikit": "1bd99ab1fb",
-                "photo.show": "e4854dbb9a",
-                "photo.test": "3bf39de0a1",
+                "photo.service.showservice": "b5b9a0c068",
+                "photo.show": "00b4b79733",
+                "photo.test": "b75c2b7118",
                 "photo.tool": "6f9dcdd3b3",
-                "photo.util.canvas": "1b36a803ce",
-                "photo.service.showservice": "6f90587c2e"
+                "photo.util.canvas": "1b36a803ce"
             },
             "c": {
                 "util.style.images": "80c5adaef4",
                 "util.style.uikit": "f2024b2adc",
-                "photo.style.gallery": "a738e6ad56",
+                "photo.style.gallery": "650b773a9d",
                 "photo.style.photocutter": "9545ad58ee",
                 "photo.style.style": "79d68b4ca2"
             },
             "t": {
                 "util.template.imagestemp": "7a615cee41",
-                "photo.template.show": "ae55267b2c"
+                "photo.template.show": "0f673ad02b"
             }
         },
         "c": {
@@ -42,9 +42,12 @@
                     "photo.test",
                     "photo.show",
                     "photo.util.canvas",
-                    "util.file"
+                    "util.file",
+                    "photo.service.showservice",
+                    "util.uikit"
                 ],
                 "c": [
+                    "util.style.uikit",
                     "photo.style.gallery",
                     "photo.style.style"
                 ],

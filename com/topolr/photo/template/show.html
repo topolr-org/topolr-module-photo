@@ -1,13 +1,23 @@
 <!--[gallery]-->
+<div class="gallery-canvas">
+    <@module type="{{data.viewerType}}"/>
+</div>
 <div class="gallery-desc"></div>
 <div class="gallery-thumbs">
     <div class="gallery-thumbs-bar" data-bind="click:bar"></div>
     <div class="gallery-thumbs-listcon">
-        <div class="gallery-thumbs-list"></div>
+        <@module type="{{data.listType}}"/>
     </div>
 </div>
-<div class="gallery-tools">
+<!--[imageviewer]-->
+<div class="imageviewer-tools">
     <%for(var i=0;i<data.tools.length;i++){%>
-    <div class="gallery-tools-btn" data-bind="click:btn" @cache(data.tools[i])><i class="mt-photo-icon <%=data.tools[i].icon;%>"></i></div>
+    <div class="imageviewer-tools-btn" data-bind="click:btn" @cache(data.tools[i])><i class="mt-photo-icon <%=data.tools[i].icon;%>"></i></div>
     <%}%>
 </div>
+<!--[thumblist]-->
+<%for(var i=0;i<data.length;i++){%>
+<div class="thumblist-item<%=(data[i].active?' active':'');%>">
+    <div class="thumblist-item-img" style="background-image:url(<%=data[i].img;%>)" data-bind="click:img" @cache(data[i])></div>
+</div>
+<%}%>
