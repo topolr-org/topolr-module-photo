@@ -11,8 +11,8 @@ Module({
             this.trigger();
         }
     },
-    action_set:function(option){
-        this.data=$.extend(true,{},option);
+    action_set:function(images){
+        this.data.images=images;
         this.data.thumbImages=[];
         this.data.current=0;
         for(var i=0;i<this.data.images.length;i++){
