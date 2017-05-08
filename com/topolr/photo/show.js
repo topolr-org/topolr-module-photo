@@ -19,7 +19,7 @@ Module({
         images:[],
         viewerType:"@.imageviewer",
         listType:"@.thumblist",
-        listWidth:200
+        listWidth:80
     },
     init: function (option) {
         this.getService("gallery").action("set",this.option.images);
