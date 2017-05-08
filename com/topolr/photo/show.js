@@ -15,7 +15,6 @@ Module({
     layout:"@show.gallery",
     services:{"gallery":"@showservice.galleryservice"},
     option: {
-        url: "gallery.json",
         images:[],
         viewerType:"@.imageviewer",
         listType:"@.thumblist",
