@@ -18,22 +18,22 @@
                 "util.images": "03911758e8",
                 "util.router": "3c3afc23f8",
                 "util.uikit": "1bd99ab1fb",
-                "photo.service.showservice": "509af3735f",
-                "photo.show": "978d2e6a07",
-                "photo.test": "facb92aeca",
-                "photo.tool": "16a50732c7",
+                "photo.service.showservice": "010170a762",
+                "photo.show": "fcf93ecb7b",
+                "photo.test": "f36490b425",
+                "photo.tool": "6f9dcdd3b3",
                 "photo.util.canvas": "1b36a803ce"
             },
             "c": {
                 "util.style.images": "80c5adaef4",
                 "util.style.uikit": "f2024b2adc",
-                "photo.style.gallery": "0ac758d7de",
+                "photo.style.gallery": "1cec4211d1",
                 "photo.style.photocutter": "9545ad58ee",
                 "photo.style.style": "79d68b4ca2"
             },
             "t": {
                 "util.template.imagestemp": "7a615cee41",
-                "photo.template.show": "0f673ad02b"
+                "photo.template.show": "a53e7497ea"
             }
         },
         "c": {
@@ -64,7 +64,7 @@
                 ]
             }
         },
-        "id": "c4cd4a8083761e672de67ce669c5fdbf"
+        "id": "90f79989c87d94e1215adbabf142f44c"
     }
 }).boot(true);
     </script>

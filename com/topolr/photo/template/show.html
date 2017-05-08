@@ -1,13 +1,10 @@
 <!--[gallery]-->
-<div class="gallery-canvas">
+<div class="gallery-canvas" style="right:<%=data.listWidth;%>px">
     <@module type="{{data.viewerType}}"/>
 </div>
 <div class="gallery-desc"></div>
-<div class="gallery-thumbs">
-    <div class="gallery-thumbs-bar" data-bind="click:bar"></div>
-    <div class="gallery-thumbs-listcon">
-        <@module type="{{data.listType}}"/>
-    </div>
+<div class="gallery-thumbs" style="width:<%=data.listWidth;%>px">
+    <@module type="{{data.listType}}"/>
 </div>
 <!--[imageviewer]-->
 <div class="imageviewer-tools">
@@ -17,7 +14,7 @@
 </div>
 <!--[thumblist]-->
 <%for(var i=0;i<data.length;i++){%>
-<div class="thumblist-item<%=(data[i].active?' active':'');%>">
+<div class="thumblist-item<%=(data[i].active?' hover':'');%>"">
     <div class="thumblist-item-img" style="background-image:url(<%=data[i].img;%>)" data-bind="click:img" @cache(data[i])></div>
 </div>
 <%}%>

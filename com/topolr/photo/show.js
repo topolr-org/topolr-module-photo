@@ -18,31 +18,27 @@ Module({
         url: "gallery.json",
         images:[],
         viewerType:"@.imageviewer",
-        listType:"@.thumblist"
+        listType:"@.thumblist",
+        listWidth:200
     },
     init: function (option) {
         this.getService("gallery").action("set",this.option.images);
     },
-    bind_bar:function () {
-        this.dom.toggleClass("close");
-    },
     update:function (data) {
         this.getChildByType(this.option.listType).setImages(data.thumbImages);
-        this.getChildByType(this.option.viewerType).setImage();
-    },
-    closeList: function () {
-        this.dom.addClass("close");
-    },
-    openList: function () {
-        this.dom.removeClass("close");
-    },
-    getData: function () {
+        this.getChildByType(this.option.viewerType).setImage(data.currentImage.big);
     },
     gotoImage: function (num) {
+        this.getService("gallery").trigger("gotoimage",num);
     },
     nextImage: function () {
+        this.getService("gallery").trigger("nextimage");
     },
     prevImage: function () {
+        this.getService("gallery").trigger("previmage");
+    },
+    event_thumbclick:function (e) {
+        this.gotoImage(e.data.index);
     }
 });
 Module({

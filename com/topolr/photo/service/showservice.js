@@ -8,6 +8,11 @@ Module({
     goto:function (index) {
         if(index>=0&&index<this.data.images.length){
             this.data.current=index;
+            for(var i=0;i<this.data.thumbImages.length;i++){
+                this.data.thumbImages[i].active=false;
+            }
+            this.data.thumbImages[this.data.current].active=true;
+            this.data.currentImage=this.data.images[this.data.current];
             this.trigger();
         }
     },
@@ -24,6 +29,9 @@ Module({
                     active:false
                 });
             }
+        }
+        for(var i=0;i<this.data.thumbImages.length;i++){
+            this.data.thumbImages[i].active=false;
         }
         this.data.thumbImages[this.data.current].active=true;
         this.data.currentImage=this.data.images[this.data.current];
@@ -42,6 +50,20 @@ Module({
                 });
             }
         }
+        for(var i=0;i<this.data.thumbImages.length;i++){
+            this.data.thumbImages[i].active=false;
+        }
+        this.data.thumbImages[this.data.current].active=true;
+        this.data.currentImage=this.data.images[this.data.current];
         this.trigger();
+    },
+    service_gotoimage:function (index) {
+        this.goto(index);
+    },
+    service_previmage:function () {
+        this.goto(this.data.current-1);
+    },
+    service_nextimage:function () {
+        this.goto(this.data.current+1);
     }
 });
