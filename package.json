@@ -1,6 +1,6 @@
 {
   "name": "topolr-module-photo",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "phtoto modules of topolr",
   "main": "index.js",
   "scripts": {},
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/topolr-org/topolr-module-photo#readme",
   "dependencies": {
     "topolr": "^1.4.8",
-    "topolr-module-util": "0.0.3"
+    "topolr-module-baseui": "^1.0.0",
+    "topolr-module-util": "^1.0.0"
   }
 }

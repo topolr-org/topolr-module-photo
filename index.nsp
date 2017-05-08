@@ -14,17 +14,22 @@
         "d": true,
         "m": {
             "p": {
+                "baseui.loading": "ccf5824e84",
+                "baseui.test": "2108ccbf82",
+                "icon.base": "1ef03576bc",
                 "util.file": "4631ae8650",
                 "util.images": "03911758e8",
                 "util.router": "3c3afc23f8",
                 "util.uikit": "1bd99ab1fb",
                 "photo.service.showservice": "010170a762",
-                "photo.show": "9d48746521",
+                "photo.show": "8a66adf4a9",
                 "photo.test": "f36490b425",
                 "photo.tool": "6f9dcdd3b3",
                 "photo.util.canvas": "1b36a803ce"
             },
             "c": {
+                "baseui.style.ui": "2e0f66973b",
+                "icon.style.icon": "aaa29edfb8",
                 "util.style.images": "80c5adaef4",
                 "util.style.uikit": "f2024b2adc",
                 "photo.style.gallery": "1cec4211d1",
@@ -32,26 +37,30 @@
                 "photo.style.style": "79d68b4ca2"
             },
             "t": {
+                "baseui.template.temp": "f696ba5d82",
                 "util.template.imagestemp": "7a615cee41",
                 "photo.template.show": "a53e7497ea"
             }
         },
         "c": {
-            "photo-test-c1": {
+            "photo-test-c2": {
                 "p": [
                     "photo.test",
                     "photo.show",
                     "photo.util.canvas",
                     "util.file",
                     "photo.service.showservice",
-                    "util.uikit"
+                    "baseui.loading",
+                    "icon.base"
                 ],
                 "c": [
-                    "util.style.uikit",
+                    "icon.style.icon",
+                    "baseui.style.ui",
                     "photo.style.gallery",
                     "photo.style.style"
                 ],
                 "t": [
+                    "baseui.template.temp",
                     "photo.template.show"
                 ]
             },
