@@ -14,32 +14,42 @@
         "d": true,
         "m": {
             "p": {
-                "baseui.loading": "ccf5824e84",
-                "baseui.test": "2108ccbf82",
-                "icon.base": "1ef03576bc",
+                "baseui.loading": "0ca65860ec",
+                "baseui.test": "9ca1306723",
+                "icon.action": "a0514105bb",
+                "icon.direct": "1789127aa8",
+                "icon.editor": "e40b7acc0a",
+                "icon.files": "6f70429ee0",
+                "icon.iconpreviewer": "b9176304ec",
+                "icon.loading": "bfb407fe1c",
+                "icon.player": "2f9f8b707c",
+                "icon.test": "2f84e120c7",
+                "icon.tm": "b1eb970f4a",
+                "icon.weather": "77df27ce51",
                 "util.file": "4631ae8650",
                 "util.images": "03911758e8",
                 "util.router": "3c3afc23f8",
                 "util.uikit": "1bd99ab1fb",
                 "photo.service.showservice": "010170a762",
-                "photo.show": "8a66adf4a9",
+                "photo.show": "ea44fbdda9",
                 "photo.test": "f36490b425",
                 "photo.tool": "6f9dcdd3b3",
                 "photo.util.canvas": "1b36a803ce"
             },
             "c": {
-                "baseui.style.ui": "2e0f66973b",
-                "icon.style.icon": "aaa29edfb8",
+                "baseui.style.ui": "a35df5d2ad",
+                "icon.style.icon": "c34b1536de",
+                "icon.style.style": "013abbdc57",
                 "util.style.images": "80c5adaef4",
                 "util.style.uikit": "f2024b2adc",
-                "photo.style.gallery": "1cec4211d1",
-                "photo.style.photocutter": "9545ad58ee",
-                "photo.style.style": "79d68b4ca2"
+                "photo.style.gallery": "ab03b97911",
+                "photo.style.photocutter": "9545ad58ee"
             },
             "t": {
-                "baseui.template.temp": "f696ba5d82",
+                "baseui.template.temp": "4008446770",
+                "icon.template.temp": "8397de88de",
                 "util.template.imagestemp": "7a615cee41",
-                "photo.template.show": "a53e7497ea"
+                "photo.template.show": "1eb6acb5d4"
             }
         },
         "c": {
@@ -51,13 +61,14 @@
                     "util.file",
                     "photo.service.showservice",
                     "baseui.loading",
-                    "icon.base"
+                    "icon.loading",
+                    "icon.action",
+                    "icon.player"
                 ],
                 "c": [
                     "icon.style.icon",
                     "baseui.style.ui",
-                    "photo.style.gallery",
-                    "photo.style.style"
+                    "photo.style.gallery"
                 ],
                 "t": [
                     "baseui.template.temp",

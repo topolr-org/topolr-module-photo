@@ -1,4 +1,4 @@
-.gallery {
+.mt-gallery {
   background: #333333;
   position: relative;
   width: 100%;
@@ -9,12 +9,12 @@
       -ms-user-select: none;
           user-select: none;
   cursor: default; }
-  .gallery .gallery-canvas {
+  .mt-gallery .mt-gallery-canvas {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0; }
-  .gallery .gallery-thumbs {
+  .mt-gallery .mt-gallery-thumbs {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -23,21 +23,21 @@
     box-shadow: 0 0 10px #483E3E;
     -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out; }
-    .gallery .gallery-thumbs .gallery-thumbs-bar {
+    .mt-gallery .mt-gallery-thumbs .mt-gallery-thumbs-bar {
       width: 15px;
       position: absolute;
       top: 0;
       left: 0;
       bottom: 0;
       text-align: center; }
-      .gallery .gallery-thumbs .gallery-thumbs-bar i {
+      .mt-gallery .mt-gallery-thumbs .mt-gallery-thumbs-bar i {
         position: absolute;
         top: 50%;
         left: 50%;
         margin-left: -5px;
         -webkit-transition: all .3s ease-out;
         transition: all .3s ease-out; }
-  .gallery .gallery-desc {
+  .mt-gallery .mt-gallery-desc {
     padding: 10px;
     background: rgba(5, 5, 5, 0.3);
     position: absolute;
@@ -46,7 +46,7 @@
     right: 0;
     pointer-events: none;
     color: white; }
-  .gallery .mask {
+  .mt-gallery .mt-mask {
     width: 40px;
     height: 40px;
     text-align: center;
@@ -58,7 +58,7 @@
     margin-left: -20px;
     margin-top: -20px;
     border-radius: 5px; }
-    .gallery .mask .con {
+    .mt-gallery .mt-mask .mt-con {
       position: absolute;
       left: 0;
       top: 0;
@@ -66,24 +66,18 @@
       bottom: 0;
       border-radius: 5px;
       box-shadow: 0 0 10px #403E3E inset; }
-  .gallery.close .gallery-thumbs {
-    -webkit-transform: translateX(150px);
-            transform: translateX(150px); }
-    .gallery.close .gallery-thumbs .gallery-thumbs-bar i {
-      -webkit-transform: rotate(180deg);
-              transform: rotate(180deg); }
 
-.imageviewer {
+.mt-imageviewer {
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0; }
-  .imageviewer canvas {
+  .mt-imageviewer canvas {
     position: absolute;
     left: 0;
     top: 0; }
-  .imageviewer .imageviewer-tools {
+  .mt-imageviewer .mt-imageviewer-tools {
     line-height: 30px;
     position: absolute;
     left: 0;
@@ -91,30 +85,30 @@
     right: 0;
     text-align: center;
     z-index: 999; }
-    .imageviewer .imageviewer-tools .imageviewer-tools-btn {
+    .mt-imageviewer .mt-imageviewer-tools .mt-imageviewer-tools-btn {
       line-height: 30px;
       width: 30px;
       display: inline-block;
       background: white;
       vertical-align: top; }
-      .imageviewer .imageviewer-tools .imageviewer-tools-btn:hover {
+      .mt-imageviewer .mt-imageviewer-tools .mt-imageviewer-tools-btn:hover {
         background: #F0F0F0; }
 
-.thumblist {
+.mt-thumblist {
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   overflow: auto; }
-  .thumblist .thumblist-item {
+  .mt-thumblist .mt-thumblist-item {
     height: 0;
     border: 1px solid #D7D7D7;
     background: white;
     position: relative;
     margin: 5px;
     padding-bottom: 90%; }
-    .thumblist .thumblist-item .thumblist-item-img {
+    .mt-thumblist .mt-thumblist-item .mt-thumblist-item-img {
       position: absolute;
       left: 5px;
       top: 5px;
@@ -124,7 +118,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat; }
-    .thumblist .thumblist-item.hover .thumblist-item-img:after {
+    .mt-thumblist .mt-thumblist-item.hover .mt-thumblist-item-img:after {
       content: "";
       width: 0;
       height: 0;

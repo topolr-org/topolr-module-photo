@@ -1,4 +1,4 @@
-.gallery{
+.mt-gallery{
     background:#333333;
     position:relative;
     width:100%;
@@ -6,13 +6,13 @@
     overflow: hidden;
     user-select: none;
     cursor:default;
-    .gallery-canvas{
+    .mt-gallery-canvas{
         position: absolute;
         left:0;
         top:0;
         bottom:0;
     }
-    .gallery-thumbs{
+    .mt-gallery-thumbs{
         position:absolute;
         top:0;
         bottom:0;
@@ -20,7 +20,7 @@
         background:#F3F2F3;
         box-shadow: 0 0 10px #483E3E;
         transition:all .3s ease-out;
-        .gallery-thumbs-bar{
+        .mt-gallery-thumbs-bar{
             width:15px;
             position: absolute;
             top:0;
@@ -36,7 +36,7 @@
             }
         }
     }
-    .gallery-desc{
+    .mt-gallery-desc{
         padding:10px;
         background:rgba(5,5,5,.3);
         position: absolute;
@@ -46,7 +46,7 @@
         pointer-events:none;
         color:white;
     }
-    .mask{
+    .mt-mask{
         width:40px;
         height:40px;
         text-align: center;
@@ -58,7 +58,7 @@
         margin-left:-20px;
         margin-top:-20px;
         border-radius: 5px;
-        .con{
+        .mt-con{
             position:absolute;
             left:0;
             top:0;
@@ -68,16 +68,8 @@
             box-shadow:0 0 10px #403E3E inset;
         }
     }
-    &.close{
-        .gallery-thumbs{
-            transform:translateX(150px);
-            .gallery-thumbs-bar i{
-                transform:rotate(180deg);
-            }
-        }
-    }
 }
-.imageviewer{
+.mt-imageviewer{
     position:absolute;
     left:0;
     top:0;
@@ -88,7 +80,7 @@
         left:0;
         top:0;
     }
-    .imageviewer-tools{
+    .mt-imageviewer-tools{
         line-height:30px;
         position: absolute;
         left:0;
@@ -96,7 +88,7 @@
         right:0;
         text-align: center;
         z-index:999;
-        .imageviewer-tools-btn{
+        .mt-imageviewer-tools-btn{
             line-height: 30px;
             width:30px;
             display: inline-block;
@@ -108,21 +100,21 @@
         }
     }
 }
-.thumblist{
+.mt-thumblist{
     position: absolute;
     left:0;
     top:0;
     right:0;
     bottom:0;
     overflow:auto;
-    .thumblist-item{
+    .mt-thumblist-item{
         height: 0;
         border:1px solid #D7D7D7;
         background:white;
         position:relative;
         margin:5px;
         padding-bottom: 90%;
-        .thumblist-item-img{
+        .mt-thumblist-item-img{
             position:absolute;
             left:5px;
             top:5px;
@@ -134,7 +126,7 @@
             background-repeat: no-repeat;
         }
         &.hover{
-            .thumblist-item-img:after{
+            .mt-thumblist-item-img:after{
                 content:"";
                 width:0;
                 height:0;

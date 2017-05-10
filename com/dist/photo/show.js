@@ -3,14 +3,15 @@
  * @require photo.util.canvas;
  * @require util.file;
  * @css photo.style.gallery;
- * @css photo.style.style;
  * @template photo.template.show;
  * @require photo.service.showservice;
  * @require baseui.loading;
+ * @require icon.player;
+ * @require icon.action;
  */
 Module({
     name: "gallery",
-    className: "gallery",
+    className: "mt-gallery",
     extend: "viewgroup",
     layout:"@show.gallery",
     services:{"gallery":"@showservice.galleryservice"},
@@ -56,18 +57,18 @@ Module({
 Module({
     name:"imageviewer",
     extend:"view",
-    className:"imageviewer",
+    className:"mt-imageviewer",
     template:"@show.imageviewer",
     option:{
         rotateoffset: 10,
         zoomoffset: 0.2,
         tools: [
-            {type: "zoomIn", icon: "mt-photo-zoom_in"},
-            {type: "zoomOut", icon: "mt-photo-zoom_out"},
-            {type: "rotateLeft", icon: "mt-photo-rotate_left"},
-            {type: "rotateRight", icon: "mt-photo-rotate_right"},
-            {type: "download", icon: "mt-photo-vertical_align_bottom"},
-            {type: "reset", icon: "mt-photo-refresh"}
+            {type: "zoomIn", icon: "mt-icon-search-plus"},
+            {type: "zoomOut", icon: "mt-icon-search-minus"},
+            {type: "rotateLeft", icon: "mt-icon-redo"},
+            {type: "rotateRight", icon: "mt-icon-undo"},
+            {type: "download", icon: "mt-icon-download3"},
+            {type: "reset", icon: "mt-icon-repeat"}
         ]
     },
     init:function () {
@@ -299,7 +300,7 @@ Module({
     name:"thumblist",
     extend:"view",
     template:"@show.thumblist",
-    className:"thumblist",
+    className:"mt-thumblist",
     option:{
         list:[]
     },
